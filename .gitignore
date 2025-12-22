@@ -245,3 +245,5 @@ soteria-rust/scripts/**/*.csv
 
 # Created using: https://www.toptal.com/developers/gitignore/api/node,ocaml
 # and modified by hand afterwards
+
+.direnv/
