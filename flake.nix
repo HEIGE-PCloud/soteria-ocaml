@@ -29,6 +29,15 @@
             nodejs_22
             yarn
           ];
+            shellHook = ''
+              if command -v opam >/dev/null 2>&1; then
+                # If a local switch exists for this directory, auto-activate it.
+                # (opam creates a `_opam/` folder for directory switches.)
+                if [ -d "_opam" ]; then
+                  eval "$(opam env --switch=. --set-switch 2>/dev/null || opam env --switch=. 2>/dev/null || opam env)"
+                fi
+              fi
+            '';
         };
 
         # Optional shell that mirrors the existing `shell.nix` (builds soteria-c
